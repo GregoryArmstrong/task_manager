@@ -1,4 +1,5 @@
 require 'yaml/store'
+require_relative 'task'
 
 class TaskManager
 
@@ -23,6 +24,14 @@ class TaskManager
 
   def self.all
     raw_tasks.map { |data| Task.new(data) }
+  end
+
+  def self.raw_task(id)
+    raw_tasks.find { |task| task["id"] == id }
+  end
+
+  def self.find(id)
+    Task.new(raw_task(id))
   end
 
 end
