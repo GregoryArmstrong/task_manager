@@ -4,5 +4,6 @@
 <div class="well">
   <% @tasks.each do |task| %>
     <h3><%= task.id %>: <a href="/tasks/<%= task.id %>"><%=task.title %></a></h3>
+    <a href="/tasks/<%= task.id %>/edit">Edit</a>
   <% end %>
 </div>

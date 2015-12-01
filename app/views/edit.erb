@@ -1,0 +1,12 @@
+<div class="text-center">
+  <form action="/tasks" method="post">
+    <div class="form-group">
+      <h1>Edit an existing task:</h1>
+      <input type='text' class="form-control" value="<%= @task.title %>" name='task[title]'/><br/>
+    </div>
+    <div class="form-group">
+      <textarea name='task[description]' class="form-control" placeholder="Task Description"><%= @task.description %></textarea><br/>
+    </div>
+      <button type='submit' class="btn btn-primary"/>Submit</button>
+  </form>
+</div>
