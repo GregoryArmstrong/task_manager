@@ -1,5 +1,6 @@
 <div class="text-center">
-  <form action="/tasks" method="post">
+  <form action="/tasks/<%= @task.id %>" method="post">
+    <input type="hidden" name="_method" value="put">
     <div class="form-group">
       <h1>Edit an existing task:</h1>
       <input type='text' class="form-control" value="<%= @task.title %>" name='task[title]'/><br/>
@@ -7,6 +8,6 @@
     <div class="form-group">
       <textarea name='task[description]' class="form-control" placeholder="Task Description"><%= @task.description %></textarea><br/>
     </div>
-      <button type='submit' class="btn btn-primary"/>Submit</button>
+      <button type='submit' class="btn btn-primary"/>Edit</button>
   </form>
 </div>
