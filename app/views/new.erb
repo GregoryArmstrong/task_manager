@@ -2,13 +2,11 @@
   <form action="/tasks" method="post">
     <div class="form-group">
       <h1>Enter a new task:</h1>
-        <label for='exampleInputTask'>Task name:</lable>
-          <input type='text' name='task[title]' id='exampleInputTask'/><br/>
-        </div>
-        <div class="form-group">
-          <label for='exampleInputTaskDescription'>Task description:</lable>
-            <textarea name='task[description]' id='exampleInputTaskDescription'></textarea><br/>
-        </div>
-          <input type='submit' class="btn btn-default"/>
+      <input type='text' class="form-control" placeholder="Task Name" name='task[title]'/><br/>
+    </div>
+    <div class="form-group">
+      <textarea name='task[description]' class="form-control" placeholder="Task Description"></textarea><br/>
+    </div>
+      <button type='submit' class="btn btn-primary"/>Submit</button>
   </form>
 </div>
