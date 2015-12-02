@@ -4,7 +4,7 @@
 <div class="well">
   <% @tasks.each do |task| %>
     <h3><%= task.id %>: <a href="/tasks/<%= task.id %>"><%=task.title %></a></h3>
-    <a href="/tasks/<%= task.id %>/edit">Edit</a>
+    <a id="edit_button" href="/tasks/<%= task.id %>/edit">Edit</a>
     <form action="/tasks/<%= task.id %>" method="post">
       <input type="hidden" name="_method" value="delete">
       <input type="submit" value="Delete">
