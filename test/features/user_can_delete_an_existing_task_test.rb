@@ -7,11 +7,14 @@ class UserCanDeleteAnExistingTaskTest < FeatureTest
     visit '/tasks'
 
     assert_equal '/tasks', current_path
-    assert page.has_content?("DeleteTaskTestTitle")
+    within('#tasks') do
+      assert page.has_content?("DeleteTaskTestTitle")
+    end
 
     click_button('Delete')
-
-    refute page.has_content?("DeleteTaskTestTitle")
+    within('#tasks') do
+      refute page.has_content?("DeleteTaskTestTitle")
+    end
   end
 
 end

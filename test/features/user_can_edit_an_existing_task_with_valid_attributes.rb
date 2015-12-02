@@ -17,8 +17,10 @@ class UserCanEditAnExistingTaskTest < FeatureTest
     click_button('submit')
 
     assert_equal '/tasks/1', current_path
-    assert page.has_content?("EditedTaskTestTitle")
-    assert page.has_content?("EditedTaskTestDescription")
+    within('#panel') do
+      assert page.has_content?("EditedTaskTestTitle")
+      assert page.has_content?("EditedTaskTestDescription")
+    end
   end
 
 end

@@ -1,7 +1,7 @@
 <div class="text-center">
   <h1>All Tasks</h1>
 </div>
-<div class="well">
+<div id="tasks" class="well">
   <% @tasks.each do |task| %>
     <h3><%= task.id %>: <a href="/tasks/<%= task.id %>"><%=task.title %></a></h3>
     <a id="edit_button" href="/tasks/<%= task.id %>/edit">Edit</a>
