@@ -2,13 +2,14 @@ require_relative '../test_helper'
 
 class TaskManagerTest < Minitest::Test
 
-  def setup
-    TaskManager.create({ title: "title1", description: "description1" })
-    TaskManager.create({ title: "title2", description: "description2" })
-    TaskManager.create({ title: "title3", description: "description3" })
+  def create_tasks(num)
+    num.times do |n|
+      TaskManager.create({title: "title#{n+1}", description: "description#{n+1}"})
+    end
   end
 
   def test_task_can_be_created
+    create_tasks(1)
     task = TaskManager.find(1)
 
     assert_equal "title1", task.title
@@ -17,6 +18,7 @@ class TaskManagerTest < Minitest::Test
   end
 
   def test_all_can_find_all_tasks_correctly
+    create_tasks(3)
     tasks = TaskManager.all
 
     assert_equal "title1", tasks[0].title
@@ -28,6 +30,7 @@ class TaskManagerTest < Minitest::Test
   end
 
   def test_can_find_a_specific_task
+    create_tasks(2)
     found = TaskManager.find(2)
 
     assert_equal "title2", found.title
@@ -35,6 +38,7 @@ class TaskManagerTest < Minitest::Test
   end
 
   def test_update_can_modify_an_existing_task
+    create_tasks(1)
     TaskManager.update(1, { title: "title3", description: "description3" })
 
     found = TaskManager.find(1)
@@ -51,6 +55,7 @@ class TaskManagerTest < Minitest::Test
   end
 
   def test_can_delete_a_created_task
+    create_tasks(3)
     found = TaskManager.find(1)
 
     assert found
