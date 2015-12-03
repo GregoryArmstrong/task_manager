@@ -6,7 +6,6 @@ class UserCanDeleteAnExistingTaskTest < FeatureTest
     TaskManager.create(title: "DeleteTaskTestTitle", description: "DeleteTaskTestDescription")
     visit '/tasks'
 
-    assert_equal '/tasks', current_path
     within('#tasks') do
       assert page.has_content?("DeleteTaskTestTitle")
     end

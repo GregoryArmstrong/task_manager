@@ -6,8 +6,6 @@ class UserCanEditAnExistingTaskTest < FeatureTest
     TaskManager.create(title: "EditTaskTestTitle", description: "EditTaskTestDescription")
     visit '/tasks'
 
-    assert_equal '/tasks', current_path
-
     click_link('edit_button')
 
     assert_equal '/tasks/1/edit', current_path
